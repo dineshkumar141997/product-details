@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+
+@use "primeicons/primeicons.css";
+@use "primeng/resources/primeng.min.css";
+@use "primeng/resources/themes/lara-light-blue/theme.css";
+@use "primeflex/primeflex.scss";
+
+.p-paginator {
+    justify-content: flex-end;
+  }
+p-toast {
+  z-index: 10000; 
+}

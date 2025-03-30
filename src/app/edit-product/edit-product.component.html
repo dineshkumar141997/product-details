@@ -1,0 +1,74 @@
+<p-toast></p-toast>
+<div class="p-4">
+    <form [formGroup]="productForm">
+        <div class="grid p-fluid formgrid">
+        
+            <div class="col-12 field">
+                <label for="title" class="text-900 font-semibold">Title</label>
+                <input id="title" type="text" pInputText formControlName="title" placeholder="Enter title" />
+                <small *ngIf="productForm.controls['title'].invalid && productForm.controls['title'].touched" class="p-error">
+                    Title is required.
+                </small>
+            </div>
+
+           
+            <div class="col-12 field">
+                <label for="price" class="text-900 font-semibold">Price</label>
+                <input id="price" type="number" pInputText formControlName="price" placeholder="Enter price" />
+                <small *ngIf="productForm.controls['price'].errors?.['required'] && productForm.controls['price'].touched" class="p-error">
+                    Price is required.
+                </small>
+                <small *ngIf="productForm.controls['price'].errors?.['min'] && productForm.controls['price'].touched" class="p-error">
+                    Price must be greater than 0.
+                </small>
+            </div>
+
+           
+            <div class="col-12 field">
+                <label for="category" class="text-900 font-semibold">Category</label>
+                <p-dropdown 
+                    id="category"
+                    [options]="categories"
+                    formControlName="category"
+                    optionLabel="name"
+                    optionValue="value"
+                    placeholder="Select category"
+                    class="w-full">
+                </p-dropdown>
+                <small *ngIf="productForm.controls['category'].invalid && productForm.controls['category'].touched" class="p-error">
+                    Category is required.
+                </small>
+            </div>
+
+          
+            <div class="col-12 field">
+                <label for="description" class="text-900 font-semibold mb-2">Description</label>
+                <textarea id="description" rows="4" pInputTextarea pInputText class="w-full" formControlName="description" placeholder="Enter description"></textarea>
+                <small *ngIf="productForm.controls['description'].errors?.['required'] && productForm.controls['description'].touched" class="p-error">
+                    Description is required.
+                </small>
+                <small *ngIf="productForm.controls['description'].errors?.['minlength'] && productForm.controls['description'].touched" class="p-error">
+                    Description must be at least 10 characters long.
+                </small>
+            </div>
+
+        
+            <div class="col-12 field">
+                <label for="imageUrl" class="text-900 font-semibold">Image URL</label>
+                <input id="imageUrl" type="text" pInputText formControlName="imageUrl" placeholder="Enter image URL" />
+                <small *ngIf="productForm.controls['imageUrl'].errors?.['required'] && productForm.controls['imageUrl'].touched" class="p-error">
+                    Image URL is required.
+                </small>
+                <small *ngIf="productForm.controls['imageUrl'].errors?.['pattern'] && productForm.controls['imageUrl'].touched" class="p-error">
+                    Enter a valid URL.
+                </small>
+            </div>
+
+       
+            <div class="col-12 flex justify-content-end mt-4">
+                <button pButton pRipple class="p-button-outlined w-8rem mr-3" icon="pi pi-times" label="Cancel" type="button"></button>
+                <button pButton pRipple class="p-button-primary w-8rem" icon="pi pi-check" label="Save" type="submit" (click)="save()"></button>
+            </div>
+        </div>
+    </form>
+</div>
