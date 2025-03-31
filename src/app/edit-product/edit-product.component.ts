@@ -14,7 +14,7 @@ export class EditProductComponent {
 
   product : any = [];
   productForm !: FormGroup;
-  productId: number | null = null;
+  productId!: number;
    categories : any = [
     { name: "Men's Clothing", value: "men's clothing" },
     { name: "Jewellery", value: "jewelery" },
@@ -34,9 +34,9 @@ export class EditProductComponent {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params : any) => {
-      const id = params.get('id');
+      var id = params.get('id');
       if (id) {
-        this.productId = +id;
+        this.productId = id;
         this.fetchProductData(this.productId);
       }
     });

@@ -20,6 +20,7 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
+import { CardModule } from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ConfirmationService } from 'primeng/api';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     ToastModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    CardModule
   ],
   providers: [MessageService,ConfirmationService],
   bootstrap: [AppComponent]

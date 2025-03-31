@@ -11,3 +11,19 @@
 p-toast {
   z-index: 10000; 
 }
+.p-card-content{
+  padding : 0px !important;
+}
+.p-datatable .p-datatable-tbody > tr > td {
+  text-align: left;
+  border: 1px solid #e5e7eb;
+  border-width: 0 0 1px 0;
+   padding: 0px !important;
+}
+.p-card-body{
+  padding:15px !important;
+}
+.field > label {
+  display: inline-block;
+  margin-bottom: 3px !important; 
+}

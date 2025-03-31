@@ -1,0 +1,11 @@
+.custom-card-shadow {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 110px);
+    overflow: hidden; 
+}
+
+.p-table-wrapper {
+    max-height: calc(100vh - 250px); 
+    overflow: auto; 
+}

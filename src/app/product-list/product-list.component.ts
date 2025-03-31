@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { ProductServicesService } from '../product-services.service';
 import { Table } from 'primeng/table';
 import { MatDialog } from '@angular/material/dialog';
@@ -12,6 +12,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   styleUrl: './product-list.component.scss'
 })
 export class ProductListComponent {
+  defaultHeight : number = 650;
   products: any = [];
   searchQuery = '';
   totalRecords: number = 0;
@@ -21,6 +22,7 @@ export class ProductListComponent {
 
   ngOnInit(): void {
     this.fetchProducts();
+    this.calculateHeight();
   }
 
   fetchProducts(): void {
@@ -59,5 +61,14 @@ deleteProduct(id: number): void {
 
   Addproduct(){
     this.router.navigateByUrl(`/product/add`);
+  }
+
+  @HostListener('window:resize', [])
+  onResize() {
+    this.calculateHeight();
+  }
+
+  calculateHeight() {
+    this.defaultHeight = window.innerHeight - 100;
   }
 }
